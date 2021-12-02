@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 
 import App from './App.vue'
 import router from './router'
+import navBar from "@/components/NavBar.vue";
 
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -26,4 +27,8 @@ library.add(faIdBadge)
 
 
 
-createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app');
+createApp(App)
+    .use(router)
+    .component('font-awesome-icon', FontAwesomeIcon)
+    .component('nav-bar', navBar)
+    .mount('#app');
