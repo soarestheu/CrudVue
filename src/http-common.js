@@ -6,6 +6,6 @@ export default axios.create({
     baseURL: "http://crudapi.test/api/base",
     headers: {
         "Content-type": "application/json",
-        "Authorization": "Bearer" + Cookie.get('Crud_token'),
+        "Authorization": "Bearer " + Cookie.get('Crud_token'),
     }
 });
