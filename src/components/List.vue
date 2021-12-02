@@ -60,7 +60,6 @@ export default {
       CrudDataService.getAll()
         .then(response => {
           this.users = response.data;
-          console.log(response.data);
         })
         .catch(e => {
           console.log(e);
