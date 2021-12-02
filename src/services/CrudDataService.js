@@ -27,6 +27,10 @@ class CrudDataService {
     logout() {
         return http.post('auth/logout');
     }
+
+    validatedToken() {
+        return http.get('me');
+    }
 }
 
 export default new CrudDataService();

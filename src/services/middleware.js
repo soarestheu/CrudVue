@@ -1,15 +1,8 @@
-import Cookie from 'js-cookie'
+import tokenValidated from "./validToken"
 
 export default {
 
     auth(to, from, next) {
-        const token = Cookie.get('Crud_token');
-
-        if (!token) {
-            next('/');
-        }
-
-        next();
-    },
-
+        tokenValidated.checkToken(to, from, next);
+    }
 }
