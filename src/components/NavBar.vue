@@ -10,7 +10,7 @@
             <router-link to="/novo" class="nav-link">Cadasatrar Usuário</router-link>
             </li>
         </div>
-        <li class="nav-item navbar-text logout">
+        <li v-if="Logado" class="nav-item navbar-text logout">
             <a href="#" @click="logout" class="nav-link">Logout </a>
         </li>
         </nav>
