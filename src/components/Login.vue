@@ -49,25 +49,21 @@ export default {
             description: "",
             password: ""
             },
-            submitted: false
+            submitted: false,
+            data: []
         };
     },
     methods: {
         login() {
-            console.log("entrou");
-            var data = {
+            this.data = {
                 email: this.user.email,
                 password: this.user.password,
             };
-            CRUDDataService.login(data)
+            CRUDDataService.login(this.data)
                     .then(response =>   {
-                        console.log(response.data);
-                        console.log(response.data.access_token);
                         Cookie.set("Crud_token", response.data.access_token);
                         this.submitted = true;
-                        this.$router.replace({
-                            name: 'list',
-                        });
+                        window.location.href = './list';
                     })
                     .catch(e => {
                         console.log(e);
