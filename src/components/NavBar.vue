@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import CRUDDataService from "@/services/CrudDataService";
+import CRUDDataService from "../services/CrudDataService";
 import Cookie from "js-cookie";
 
     export default {
@@ -29,38 +29,33 @@ import Cookie from "js-cookie";
             }
         },
         methods: {
-            // exibeMenu(){
-            //      CRUDDataService.validatedToken()
-            //         .then(response => {
-            //             var verifyToken = response.data;
-            //             if (verifyToken.status == "Token is Invalid") {
-            //                 this.Logado = false;
-            //             } else {
-            //                 this.Logado = true;
-            //             }
-
-            //         }).catch(e => {
-            //             console.log(e);
-            //         });
-            // },
             logout() {
                 CRUDDataService.logout()
                 .then(response =>{
-                console.log(response.data);
-                Cookie.remove("Crud_token");
-                this.$router.replace({
-                    name: '/'
-                });
- 
+                    console.log(response.data);
+                    Cookie.remove("Crud_token");
+                    location.reload();
                 })
                 .catch(e => {
                 console.log(e);
                 });
-            }
+            },
+            exibeMenu(){
+                 CRUDDataService.validatedToken()
+                    .then(responseApi => {
+                        if (responseApi.data.status) {
+                            this.Logado = false;
+                        } else {
+                            this.Logado = true;
+                        }
+                    }).catch(e => {
+                        console.log(e);
+                    });
+            },
         },
-        // mounted() {
-        //     this.exibeMenu();
-        // },
+        mounted() {
+            this.exibeMenu();
+        },
 
     }
 </script>
