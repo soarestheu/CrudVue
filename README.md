@@ -28,6 +28,6 @@ Nesse projeto foi utilizado no back-end, uma API com Laravel que se encontra dis
 Para iniciar rodar o projeto, execute os comandos abaixo no terminal:
 ```bash
   npm install
-  npm run server
+  npm run serve
 ```
     
