@@ -5,7 +5,7 @@ class Token {
         CrudDataService.validatedToken()
             .then(response => {
                 var verifyToken = response.data;
-                if (verifyToken.status == "Token is Invalid") {
+                if (verifyToken.status == "Token is Invalid" || verifyToken.status == "Token is Expired") {
                     next('/');
                 } else {
                     next();
